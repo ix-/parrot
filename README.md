@@ -17,3 +17,7 @@ Further: If the use of a password is given, perform rotation:
   *  use is a db -> login with $old_pw, substitute $old_pw with $new_pw, update store (with date)
   *  log changes and mail to admin (via git)
 
+Languages
+---------
+The project will be python-only
+
