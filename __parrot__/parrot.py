@@ -4,11 +4,25 @@
 class pw:
     '''parrot.pw - password administration
 
+    create_needir: creates needed file structure
     gen: parrot's password generation tool
     enc: encrypts password with gpg-id
     save: saves encrypted password file
     prompt: prompt for gpg-password
     '''
+
+    def create_needir(name=None):
+        ''' create_needir - creates directories as needed
+
+        name:   name of the file (full path)
+        '''
+        if not name:
+            raise ValueError("No filename given. Abort!")
+        import os
+        dirname = os.path.dirname(name)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+            return "%s created" % (dirname)
 
     def gen(lenght=12, low=True, num=True, punct=True, upp=True):
         '''gen - generates a random string
