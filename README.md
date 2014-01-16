@@ -2,6 +2,7 @@ parrot
 ======
 
 password rotation tool
+__Disclaimer: this is a noob-project, don't use it.__
 Parrot should generate, store, stdout, change and rotate passwords. Passwords in config files (ie to access a database) should be exchanged (and the database updated).
 
 Goals
