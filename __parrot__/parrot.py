@@ -6,7 +6,7 @@ class pw:
 
     create_needir: creates needed file structure
     gen: parrot's password generation tool
-    enc: encrypts password with gpg-id
+    TODO: enc: encrypts password with gpg-id
     save: saves encrypted password file
     prompt: prompt for gpg-password
     '''
@@ -56,3 +56,25 @@ class pw:
         password = [random.choice("".join(pool)) for item in range(lenght)]
         return "".join(password)    # create pwd with 'lenght' char
 
+    def save(password=None, name=None):
+        ''' save - saves the password in a file 'name'.
+
+        password:   string to be saved (should already be encrypted)
+        name:       name of the file to save
+
+        Example:    save(password="Spam", name="ham/egg.bacon")
+        Return:     file 'egg.bacon' in folder 'ham' containing 'Spam'
+        '''
+        if not password:
+            import getpass
+            password = getpass.getpass(prompt="Nothing to save.\n Enter text:")
+            if not password:
+                raise ValueError("Nothing to save. Abort!")
+        if not name:
+            name = input("No file name specified.\n Enter filename:")
+            if not name:
+                raise ValueError("No file name specified. Abort!")
+        pw.create_needir(name)    # create the file structure
+        storage = open(name, "w")
+        storage.writelines(password)
+        storage.close()
