@@ -56,6 +56,23 @@ class pw:
         password = [random.choice("".join(pool)) for item in range(lenght)]
         return "".join(password)    # create pwd with 'lenght' char
 
+    def enc(plainpw=None, gpgID=None):
+        '''TODO: enc -  encrypts plaintext password with public gpg-key
+
+        plaintextpw:    plaintext password to be encrypted
+        gpgID:          public key ID with wich to encrypt the password
+
+        returns a gpg encrypted string
+        '''
+
+        ''' TODO:
+            pyGPG does not work for python3. Implementing GPG
+            through pipes might make the program platform dependend.
+            Alternatives?
+            Right now, this is a dummy
+        '''
+        return "Spam, Ham, Eggs and Spam"
+
     def save(password=None, name=None):
         ''' save - saves the password in a file 'name'.
 
