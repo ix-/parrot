@@ -8,7 +8,8 @@ class pw:
     gen: parrot's password generation tool
     TODO: enc: encrypts password with gpg-id
     save: saves encrypted password file
-    prompt: prompt for gpg-password
+    TODO: prompt: prompt for gpg-password
+    arg: read arguments from stdin
     '''
 
     def create_needir(name=None):
@@ -76,8 +77,8 @@ class pw:
     def save(password=None, name=None):
         ''' save - saves the password in a file 'name'.
 
-        password:   string to be saved (should already be encrypted)
-        name:       name of the file to save
+        password:   string, pw to be saved (should already be encrypted)
+        name:       string, name of the file to save
 
         Example:    save(password="Spam", name="ham/egg.bacon")
         Return:     file 'egg.bacon' in folder 'ham' containing 'Spam'
@@ -95,3 +96,21 @@ class pw:
         storage = open(name, "w")
         storage.writelines(password)
         storage.close()
+
+    def arg(argv, shopt=None, lopt=None):
+        ''' argument - read arguments from stdin
+
+        argv:    TODO
+        shopt:   string, short options from stdin
+        lopt:    list, long options from stdin
+
+        Example: argument(sys.argv[1:])
+        Returns TODO: options, arguments
+        '''
+        import getopt
+        import sys
+        try:
+            opts, args = getopt.getopt(argv, shopt, longopts=lopt)
+        except getopt.GetoptError:
+            sys.exit(2)
+        return opts, args
