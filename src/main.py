@@ -36,7 +36,11 @@ if args.gen:                #if arg gen is given, generate pw with the options:
                       num=bool(args.num),       # - omit numeric characters,
                       punct=bool(args.punct),   # - omit punctuation
                       upp=bool(args.upp))       # - omit upper case characters
+<<<<<<< HEAD
     name=str("".join((config.get('home'), args.name))) # name and file structure ...
+=======
+    name=str("/".join((config.get('home'), args.name))) # name and file structure ...
+>>>>>>> 071976601717a1e81a95c65adc31a49ed38ad9b0
     pw.save(password, name)                     # ...to save pw to
     print(" -> ".join((password, name)))        # and print to stdout
 else:
