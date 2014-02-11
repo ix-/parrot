@@ -9,7 +9,6 @@ class pw:
     TODO: enc: encrypts password with gpg-id
     save: saves encrypted password file
     TODO: prompt: prompt for gpg-password
-    arg: read arguments from stdin
     '''
 
     def create_needir(name=None):
@@ -96,21 +95,3 @@ class pw:
         storage = open(name, "w")
         storage.writelines(password)
         storage.close()
-
-    def arg(argv, shopt=None, lopt=None):
-        ''' argument - read arguments from stdin
-
-        argv:    TODO
-        shopt:   string, short options from stdin
-        lopt:    list, long options from stdin
-
-        Example: argument(sys.argv[1:])
-        Returns TODO: options, arguments
-        '''
-        import getopt
-        import sys
-        try:
-            opts, args = getopt.getopt(argv, shopt, longopts=lopt)
-        except getopt.GetoptError:
-            sys.exit(2)
-        return opts, args
