@@ -23,3 +23,12 @@ Languages
 ---------
 The project will be python-only
 
+Roadmap
+-------
+* generate random passwords    DONE (is this random?)
+* encrypt password with gpg    TODO
+* store passwords in a file    DONE (TODO add .gpg if encrypted)
+* look up (encrypted) password TODO
+* add use (config, db)         TODO
+* rotate passwords             TODO
+* store changes in git history TODO
